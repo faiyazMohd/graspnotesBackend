@@ -5,8 +5,7 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser')
-const JWT_SECRET =  'Now!SayMyName'
-
+const JWT_SECRET = process.env.JWT_KEY;
 // Route 1 : Create a User using: POST "/api/auth/createuser" . No login required
 router.post('/createuser',[
             body('name',"Enter a valid name").isLength({ min: 3 }),
